@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.wordpressApplicationName }}
+  namespace: {{ .Values.devnamespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.wordpressApplicationName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.wordpressApplicationName }}
+    spec:
+      containers:
+      - name: {{ .Values.wordpressApplicationName }}
+        image:  "{{ .Values.wordpressimage.name  }}:{{ .Values.wordpressimage.tag }}"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
