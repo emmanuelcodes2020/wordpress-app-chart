@@ -1,10 +1,13 @@
 
 devnamespace: dev
 wordpressApplicationName: wordpress-app
-wordpressservice: wordpress-app-service
+
 
 
 wordpressimage:
   name: 416591745024.dkr.ecr.eu-west-2.amazonaws.com/wordpress-repo/wordpress-app
   tag: "latest"
 
+wordpressservice: wordpress-app-service
+serviceingress:  wordpress-ingress-service
+wordpressappbaseURL : wordpress.globalfrontierlink.co.uk
